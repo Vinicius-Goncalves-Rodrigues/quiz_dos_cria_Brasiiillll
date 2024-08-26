@@ -1,12 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
+*{
+    font-family: "Madimi One";
+}
 body {
     background: url(assets/img/7620770.png);
     background-size: cover;
-    background-position-y: -225px;
+    background-position-y: -185px;
     background-position-x: 5px;
 }   
 button{
+    font-family: "Krona One";
+    font-size: 17px;
     border-radius: 30px;
-    background-color: #05740D;
+    border: 1px solid #000000;
+    background-color: #12971b;
+    display: flex;
+    align-items: center;
+    touch-action: manipulation;
+    box-shadow: #000000 3px 3px 0 0;
+    transition: 0.7s;
+}
+button:hover{
+    scale: 1.1;
+    transition: 0.7s;
+}
+button:active{
+    box-shadow: #000000 2px 2px 0 0;
+    transform: translate(2px, 2px);
 }
 
 .container-quiz{
@@ -20,6 +40,7 @@ button{
     border-radius: 10px;
     gap:1rem;
     text-align: center;
+    margin-top: 45px;
 }
 .container-quiz div{
     width: 80%;
@@ -37,7 +58,7 @@ button{
     align-items: center;
 }
 .container-quiz div:has(input[type="radio"]:checked){
-    background-color: rgb(173, 247, 0);
+    background-color: rgb(22, 153, 17);
 }
 .container-quiz div:has(input[type="radio"]:hover){
     scale: 1.2;
