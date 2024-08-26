@@ -2,6 +2,7 @@ body {
     background: url(assets/img/7620770.png);
     background-size: cover;
     background-position-y: -225px;
+    background-position-x: 5px;
 }   
 
 .container-quiz{
