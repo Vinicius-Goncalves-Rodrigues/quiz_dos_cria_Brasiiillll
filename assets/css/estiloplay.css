@@ -201,6 +201,7 @@ form{
 
 form button{
    aspect-ratio: 8/1;
+   font-size: 2rem;
 }
 form label{
    color:whitesmoke;
