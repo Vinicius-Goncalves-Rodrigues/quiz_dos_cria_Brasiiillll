@@ -1,6 +1,7 @@
 body {
-    background: url(assets/img/brasil.png);
-    min-height: 100vh;
+    background: url(assets/img/7620770.jpg);
+    background-size: cover;
+    background-position-y: -225px;
 }   
 
 .container-quiz{
