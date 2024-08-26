@@ -1,0 +1,43 @@
+body{
+    background-color: #5B8FEE;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+div.sun-container{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: rotate(45deg);
+}
+div.sun-container .sun{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    border-radius: 100px;
+    margin-left:-100px;
+    margin-top:-100px;
+    transform: translateY(-80vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sun::before{
+    content: '';
+    background-color: #FDBE01;
+    border-radius: 200px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.sun img{
+    width: 160%;
+    z-index: -1;
+    user-select: none;
+    animation: rotate 30s linear infinite;
+}
+@keyframes rotate {
+    0%{rotate:0deg}
+    100%{rotate:360deg}
+}
