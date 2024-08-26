@@ -1,6 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
+
+*{
+    margin: 0;
+}
+a{
+   text-decoration: none;
+}
+:root{
+
+    --cor-primaria: #335674;
+    --cor-secundaria: #d3dfeb;
+    --cor-terciaria: #f8ecd4;
+    --cor-hover: black;
+
+    --fonte-primaria: "Krona One", sans-serif, verdana;
+    --fonte-secundaria: "Madimi One", sans-serif, verdana;
+
+}
 body{
    background-image: url(../img/brasil.png);
    background-repeat: no-repeat;
    background-size:  100%;
-  
+}
+nav h1{
+   margin-left: 35px;
+   margin-top: 0;
+   transition: 1s linear;    
+}
+nav h1:hover{
+   transition: 0.5s linear;
+   scale: 1.2;
+   color:rgb(127, 181, 208);
+}
+.cabecalho{
+   color: var(--cor-primaria);
+   background-color: var(--cor-primaria);
+   text-align: center;
+   font-family: var(--fonte-secundaria);
+   font-size: 24px;
+   font-weight: 400;
+   width:  100%;
+   height: 100px;
+   justify-content: space-around;
+}
+
+.cabecalho_menu{
+   display: flex;
+   gap: 80px;
+   align-items: baseline;
+}
+
+.cabecalho_menu_link{
+   font-family: var(--fonte-secundaria);
+   font-size: 24px;
+   font-weight: 600;
+   color: var(--cor-terciaria);
+   padding: 8px 50px;
+   text-decoration: none;
+   transition: 0.9s;
+}
+
+.cabecalho_menu_link:hover{
+   color: var(--cor-hover);
+   transform: rotate(360deg);
+}
+
+nav h1{
+   font-family: var(--fonte-secundaria);
+   color: var(--cor-terciaria);
+   font-size: 40px;
+}
+
+.menu li{
+   padding: 5px 14px;
+}
+
+input[type=checkbox]{
+   display: none;}
+
+.hamburger{
+   display: none;
+   font-size: 24px;
+   user-select: none;
+   transition: 0.5s ease-out;
+}
+.hamburger:hover, .hamburger:focus{
+   scale: 1.7;
+}
+ul:has(input:checked) .hamburger{
+   rotate:360deg;
+}
+.menu{
+   border-top-left-radius: 0px;
+   border-bottom-left-radius: 50px;
+   width: 400px;
+   position: absolute;
+   flex-direction: column;
+   background-color:  #51799d;
+   box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.75);
+   right: 0;
+   top: 7.1%;
+   text-align: right;
+   padding: 16px 0;
+   margin-top: 50px;
+   margin-left: auto;
+   z-index: 1;
+   transform: translateX(200%);
+   transition: transform 0.5s ease-out;
+   display: flex;
+   gap: 2em;
+   font-size: 18px;
+}
+.menu li:hover{
+   background-color: rgb(226, 201, 104);
+   border-radius: 5px;
+   display: inline-block;
+   background-color: rgb(226, 201, 104)te;
+   transition: 0.3 ease;
+}
+
+.menu li + li {
+   margin-top: 12px;
+}
+input[type=checkbox]:checked ~ .menu{
+   transform: translateX(0%);
+}
+.hamburger{
+   display: block;
+}
+input[type="checkbox"]:checked ~ #sidebarMenu {
+   transform: translateX(0);
+}
+
+input[type=checkbox] {
+   transition: all 0.3s;
+   box-sizing: border-box;
+   display: none;
+}
+.sidebarIconToggle {
+   transition: all 0.3s;
+   box-sizing: border-box;
+   cursor: pointer;
+   z-index: 99;
+   height: 100%;
+   width: 100%;
+   top: 22px;
+   left: 15px;
+   height: 22px;
+   width: 22px;
+}
+.spinner {
+   transition: all 0.3s;
+   box-sizing: border-box;
+   position: absolute;
+   height: 3px;
+   width: 100%;
+   background-color: #fff;
+}
+.horizontal {
+   transition: all 0.3s;
+   box-sizing: border-box;
+   position: relative;
+   float: left;
+   margin-top: 3px;
+}
+.diagonal.part-1 {
+   position: relative;
+   transition: all 0.3s;
+   box-sizing: border-box;
+   float: left;
+}
+.diagonal.part-2 {
+   transition: all 0.3s;
+   box-sizing: border-box;
+   position: relative;
+   float: left;
+   margin-top: 3px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+   transition: all 0.3s;
+   box-sizing: border-box;
+   opacity: 0;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+   transition: all 0.3s;
+   box-sizing: border-box;
+   transform: rotate(135deg);
+   margin-top: 8px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+   transition: all 0.3s;
+   box-sizing: border-box;
+   transform: rotate(-135deg);
+   margin-top: -9px;
 }
