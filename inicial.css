@@ -4,6 +4,10 @@ body {
     background-position-y: -225px;
     background-position-x: 5px;
 }   
+button{
+    border-radius: 30px;
+    background-color: #05740D;
+}
 
 .container-quiz{
     flex-direction: column;
