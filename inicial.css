@@ -1,6 +1,7 @@
 body {
-    background: url(assets/img/brasil.png);
-    min-height: 100vh;
+    background: url(assets/img/7620770.jpg);
+    background-size: cover;
+    background-position-y: -225px;
 }   
 
 .container-quiz{
@@ -13,7 +14,7 @@ body {
     padding: 10px;
     border-radius: 10px;
     gap:1rem;
-    
+    text-align: center;
 }
 .container-quiz div{
     width: 80%;
@@ -24,6 +25,7 @@ body {
     display: flex;
     gap: 1rem;
     align-items: center;
+    transition: 0.5s;
 }
 .container-quiz div h1{
     display: flex;
@@ -31,6 +33,10 @@ body {
 }
 .container-quiz div:has(input[type="radio"]:checked){
     background-color: rgb(173, 247, 0);
+}
+.container-quiz div:has(input[type="radio"]:hover){
+    scale: 1.2;
+    transition: 0.5s;
 }
 .container-quiz div input[type="radio"]{
     position: absolute;
