@@ -38,11 +38,10 @@ body{
    color: var(--cor-terciaria);
    padding: 8px 50px;
    text-decoration: none;
-   transition: 0.9s;
+   transition: all 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .cabecalho_menu_link:hover{
-   color: var(--cor-hover);
    transform: rotate(360deg);
 }
 
@@ -56,10 +55,15 @@ nav h1{
    padding: 5px 14px;
 }
 .menu li a img{
-   width: 50px;
+   width: 75px;
+   border-radius: 100px;
 }
 .menu li a{
    flex-wrap: nowrap;
+   font-size: 2rem;
+   display: flex;
+   gap:2rem;
+   align-items: center;
 }
 
 input[type=checkbox]{
@@ -84,7 +88,7 @@ ul:has(input:checked) .hamburger{
    width: 300px;
    position: absolute;
    flex-direction: column;
-   background-color:  #51799d;
+   background-color:  #05740D;
    box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.75);
    left: 0;
    top: 7.1%;
@@ -98,12 +102,11 @@ ul:has(input:checked) .hamburger{
    display: flex;
    gap: 2em;
    font-size: 18px;
+   overflow: hidden;
 }
 .menu li:hover{
-   background-color: rgb(226, 201, 104);
-   border-radius: 5px;
+   background-color: #EED107;
    display: inline-block;
-   background-color: rgb(226, 201, 104)te;
    transition: 0.3 ease;
 }
 
