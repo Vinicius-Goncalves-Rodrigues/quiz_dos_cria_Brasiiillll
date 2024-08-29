@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <a href="indexplay.html">< voltar</a>
+        <a href="index.html">< voltar</a>
         <div>
             <h3>vez do:</h3>
             <h1>TIME SOL</h1>
