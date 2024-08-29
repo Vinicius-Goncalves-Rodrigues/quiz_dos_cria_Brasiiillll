@@ -1,14 +1,6 @@
 <?php
 
-if(isset($_GET["vez_do_time"])){
-    $pontos_time1 = $_GET["pontos_time1"];
-    $pontos_time2 = $_GET["pontos_time2"];
-    $vez_do_time = $_GET["vez_do_time"];
-}else{
-    $pontos_time1 = 0;
-    $pontos_time2 = 0;
-    $vez_do_time = 1;
-}
+
 
 ?>
 <!DOCTYPE html>
