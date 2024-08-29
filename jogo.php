@@ -13,10 +13,10 @@ if(isset($_POST['vez_do_time'])){
 else{
     $todasPerguntas = $quizController->listarPerguntasId();
     shuffle($todasPerguntas);
-    $perguntas_restantes = array_slice($todasPerguntas, 0, sizeof($todasPerguntas) - $_POST['total_perguntas']);
+    $perguntas_restantes = array_slice($todasPerguntas, 0, ($_POST['total_perguntas']*2) - sizeof($todasPerguntas) );
     $perguntaId = $perguntas_restantes[sizeof($perguntas_restantes)-1]['id'];
 
-    $jogo_id = $quizController->criarJogo($_POST['total_perguntas'], $perguntaId, 0,0,$perguntas_restantes);
+    $jogo_id = $quizController->criarJogo(($_POST['total_perguntas']*2), $perguntaId, 0,0,$perguntas_restantes);
     $vez_do_time = 2;
 
 }
@@ -84,9 +84,9 @@ if(isset($_POST['vez_do_time'])){
         <p class="time is"><?="TIME 2: $pontuacao_time_2"?></p>
     </header>
     <form method="POST" class="container-quiz"><h1><?=$pergunta["texto_pergunta"]?></h1>
-    <h4>perguntas restantes: <?=sizeof($perguntas_restantes)." ".$pergunta["resposta_certa"]?></h4>
+    <h4>perguntas restantes: <?=sizeof($perguntas_restantes)?></h4>
 
-        <div><input type="radio" name="resposta_selecionada" value="A"><h1>A)</h1><?=$pergunta['opcao_1']?></div>
+        <div><input type="radio" name="resposta_selecionada" value="A" required><h1>A)</h1><?=$pergunta['opcao_1']?></div>
         <div><input type="radio" name="resposta_selecionada" value="B"><h1>B)</h1><?=$pergunta['opcao_2']?></div>
         <div><input type="radio" name="resposta_selecionada" value="C"><h1>C)</h1><?=$pergunta['opcao_3']?></div>
         <div><input type="radio" name="resposta_selecionada" value="D"><h1>D)</h1><?=$pergunta['opcao_4']?></div>
