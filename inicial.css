@@ -6,8 +6,6 @@
 body {
     background: url(assets/img/7620770.png);
     background-size: cover;
-    background-position-y: -185px;
-    background-position-x: 5px;
 }
 header{
     background-color: whitesmoke;
@@ -26,23 +24,33 @@ header h3{
 }
 button{
     font-family: "Krona One";
-    font-size: 17px;
+    font-size: 2rem;
     border-radius: 30px;
-    border: 1px solid #000000;
-    background-color: #12971b;
     display: flex;
     align-items: center;
     touch-action: manipulation;
-    box-shadow: #000000 3px 3px 0 0;
-    transition: 0.7s;
+    border: none;
+    padding: 10px;
+    color:whitesmoke;
+    box-shadow: black 0 10px 0 0;
+    transform: translateY(-10px);
+    margin-top: 10px;
+    transition: transform 0.25s cubic-bezier(0.19, 1, 0.22, 1),
+                box-shadow 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+}
+body:has(h3.um) button{
+    background-color: #12971b;
+}
+body:has(h3.is) button{
+    background-color: #0C2373;
 }
 button:hover{
-    scale: 1.1;
-    transition: 0.7s;
+    transform: translateY(-5px);
+    box-shadow: black 0 5px 0 0;
 }
 button:active{
-    box-shadow: #000000 2px 2px 0 0;
-    transform: translate(2px, 2px);
+    transform: translateY(-0px);
+    box-shadow: black 0 0px 0 0;
 }
 
 .container-quiz{
@@ -57,6 +65,7 @@ button:active{
     gap:1rem;
     text-align: center;
     margin-top: 45px;
+    margin-bottom: 40px;
 }
 .container-quiz div{
     width: 80%;

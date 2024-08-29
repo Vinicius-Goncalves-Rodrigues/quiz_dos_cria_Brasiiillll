@@ -80,7 +80,7 @@ if(isset($_POST['vez_do_time'])){
 <body>
     <header>
         <p class="time um"><?="TIME 1: $pontuacao_time_1"?></p>
-        <h3 class="<?php if($vez_do_time = 1){echo"um";}else{echo"is";}?>"><?="VEZ DO TIME $vez_do_time"?></h3>
+        <h3 class="<?php if($vez_do_time == 1){echo"um";}else{echo"is";}?>"><?="VEZ DO TIME $vez_do_time"?></h3>
         <p class="time is"><?="TIME 2: $pontuacao_time_2"?></p>
     </header>
     <form method="POST" class="container-quiz"><h1><?=$pergunta["texto_pergunta"]?></h1>
@@ -94,7 +94,7 @@ if(isset($_POST['vez_do_time'])){
         <input type="hidden" name="jogo_id" value="<?=$jogo_id?>">
         <input type="hidden" name="vez_do_time" value="<?=$vez_do_time?>">
         <input type="hidden" name="pergunta_anterior_id" value="<?=$perguntaId?>">
-        <button><strong>🔥ENVIAR🔥</strong></button>
+        <button><strong>ENVIAR RESPOSTA</strong></button>
     </form>
 </body>
 
