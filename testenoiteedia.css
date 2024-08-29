@@ -1,27 +1,49 @@
+*{
+    margin: 0;
+    font-family: verdana;
+}
 body{
     background-color: #5B8FEE;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    align-items: center;
+    min-height: 100vh;
 }
 
-div.sun-container{
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: rotate(45deg);
+header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(13, 141, 30);
+    padding: 10px;
 }
+header a{
+    position: absolute;
+    left: 10px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    color:black;
+    text-decoration: none;
+}
+header div{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
 div.sun-container .sun{
     width: 200px;
     height: 200px;
     position: absolute;
     border-radius: 100px;
-    margin-left:-100px;
-    margin-top:-100px;
-    transform: translateY(-80vh);
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: translateY(-50%) translateX(-50%) translateY(200px);
 }
 .sun::before{
     content: '';
@@ -36,6 +58,7 @@ div.sun-container .sun{
     z-index: -1;
     user-select: none;
     animation: rotate 30s linear infinite;
+    filter: drop-shadow(0 0 10px #fda90171);
 }
 @keyframes rotate {
     0%{rotate:0deg}
