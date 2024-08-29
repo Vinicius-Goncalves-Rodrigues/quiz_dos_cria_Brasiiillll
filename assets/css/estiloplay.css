@@ -91,7 +91,6 @@ ul:has(input:checked) .hamburger{
    width: 300px;
    position: absolute;
    flex-direction: column;
-   background-color:  cor-primaria;
    box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.75);
    left: 0;
    top: 7.1%;
@@ -106,6 +105,8 @@ ul:has(input:checked) .hamburger{
    gap: 2em;
    font-size: 18px;
    overflow: hidden;
+   backdrop-filter: blur(10px);
+   background-color: #05740c70;
 }
 .menu li:hover{
    background-color: #EED107;
@@ -204,7 +205,8 @@ form button{
    font-size: 2rem;
 }
 form label{
-   color:whitesmoke;
+   color:whitesmoke
+   ;
    font-size:2.5rem;
    font-family: Verdana;
 }
