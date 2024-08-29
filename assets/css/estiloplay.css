@@ -91,6 +91,10 @@ ul:has(input:checked) .hamburger{
    width: 300px;
    position: absolute;
    flex-direction: column;
+<<<<<<< HEAD
+=======
+   background-color: #05740cf5;
+>>>>>>> 48889dee6cea6ef24fd7378c7e631d241442dc3d
    box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.75);
    left: 0;
    top: 7.1%;
