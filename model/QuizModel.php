@@ -9,7 +9,7 @@ class QuizModel{
     }
     
     public function criarPergunta($texto_pergunta, $resposta_correta, $opcao_1,$opcao_2,$opcao_3,$opcao_4){
-        $sql = "INSERT INTO quiz(tipo,texto_pergunta, resposta_correta, opcao_1,opcao_2,opcao_3,opcao_4) VALUES ('pergunta',?,?,?,?,?,?)";
+        $sql = "INSERT INTO quiz(tipo,texto_pergunta, resposta_certa, opcao_1,opcao_2,opcao_3,opcao_4) VALUES ('pergunta',?,?,?,?,?,?)";
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute([$texto_pergunta, $resposta_correta, $opcao_1,$opcao_2,$opcao_3,$opcao_4]);
     }
