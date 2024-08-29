@@ -15,7 +15,12 @@
         <form method="POST" function="#">
             <input type="text" placeholder="texto da pergunta" name="texto_pergunta" />
             <br>
-            <input type="text" placeholder="resposta certa (maiuscula)" name="resposta_correta" maxlength="1" required/>
+            <select name="resposta_correta">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
             <br>
             <input type="text" placeholder="opção 1" name="opcao_1" required/>
             <br>
