@@ -48,5 +48,16 @@ class QuizModel{
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute([$vencedor,$pontuacao_final_time_1,$pontuacao_final_time_2]);
     }
-    
+    public function getLatestResultadoId(){
+        $sql = "SELECT * FROM quiz WHERE tipo = 'resultado' ORDER BY id DESC";
+        $stmt = $this->PDO->query($sql);
+        $selected = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $id = $selected[0]['id'];
+        return $id;
+    }
+    public function listarResultadoPorId($id){
+        $sql = "SELECT * FROM quiz WHERE id = $id AND tipo = 'resultado'";
+        $stmt = $this->PDO->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

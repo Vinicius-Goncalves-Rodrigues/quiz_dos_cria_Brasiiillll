@@ -27,47 +27,87 @@ $jogo_info = $quizController->listarJogoPorId($jogo_id);
 $pontuacao_time_1 = $jogo_info['pontuacao_time_1'];
 $pontuacao_time_2 = $jogo_info['pontuacao_time_2'];
 
+$acabo_o_jogo = false;
 // regressar na lista se o jogo foi redirecionado da pagina jogo.php
 if(isset($_POST['vez_do_time'])){
     $perguntas_restantes = $jogo_info['perguntas_restantes'];
     $perguntas_restantes = array_slice($perguntas_restantes, 0, sizeof($perguntas_restantes)-1);
-    $perguntaId = $perguntas_restantes[sizeof($perguntas_restantes)-1]['id'];
+    if(sizeof($perguntas_restantes) != 0){
+        $perguntaId = $perguntas_restantes[sizeof($perguntas_restantes)-1]['id'];
+    }else{
+        $acabo_o_jogo = true;
+    }
 }else{
     $perguntaId = $jogo_info['pergunta_atual_id'];
     $perguntas_restantes = $jogo_info['perguntas_restantes'];
 }
-$pergunta = $quizController->listarPerguntaPorId($perguntaId);
+// checa se o jogo ja acabou, se nao, executa o codigo da pagina de término
+if(!$acabo_o_jogo){
+    $pergunta = $quizController->listarPerguntaPorId($perguntaId);
 
-// trocar a vez do time 
-switch($vez_do_time){
-    case 1:
-        $vez_do_time = 2;
-        break;
-    case 2:
-        $vez_do_time = 1;
-        break;
-}
-// adicionar pontos se o time acertou a pergunta
-$acertou = false;
-if(isset($_POST['pergunta_anterior_id'])){
-    $pergunta_anterior = $quizController->listarPerguntaPorId($_POST['pergunta_anterior_id']);
-    if (ucfirst($_POST['resposta_selecionada']) == ucfirst($pergunta_anterior['resposta_certa'])){
-        switch($vez_do_time){
-            case 1:
-                $pontuacao_time_2 += 1;
-                $acertou = true;
-                break;
-            case 2:
-                $pontuacao_time_1 += 1;
-                $acertou = true;
-                break;
+    // trocar a vez do time 
+    switch($vez_do_time){
+        case 1:
+            $vez_do_time = 2;
+            break;
+        case 2:
+            $vez_do_time = 1;
+            break;
+    }
+    // adicionar pontos se o time acertou a pergunta
+    $acertou = false;
+    if(isset($_POST['pergunta_anterior_id'])){
+        $pergunta_anterior = $quizController->listarPerguntaPorId($_POST['pergunta_anterior_id']);
+        if (ucfirst($_POST['resposta_selecionada']) == ucfirst($pergunta_anterior['resposta_certa'])){
+            switch($vez_do_time){
+                case 1:
+                    $pontuacao_time_2 += 1;
+                    $acertou = true;
+                    break;
+                case 2:
+                    $pontuacao_time_1 += 1;
+                    $acertou = true;
+                    break;
+            }
         }
     }
-}
 
-//salvar as informações para a tabela do jogo.
-if(isset($_POST['vez_do_time'])){
-    $quizController->atualizarJogo($jogo_id, $perguntaId, $pontuacao_time_1, $pontuacao_time_2, $perguntas_restantes);
+    //salvar as informações para a tabela do jogo.
+    if(isset($_POST['vez_do_time'])){
+        $quizController->atualizarJogo($jogo_id, $perguntaId, $pontuacao_time_1, $pontuacao_time_2, $perguntas_restantes);
+    }
+}else{
+    // adicionar pontos se o time acertou a pergunta
+    $acertou = false;
+    if(isset($_POST['pergunta_anterior_id'])){
+        $pergunta_anterior = $quizController->listarPerguntaPorId($_POST['pergunta_anterior_id']);
+        if (ucfirst($_POST['resposta_selecionada']) == ucfirst($pergunta_anterior['resposta_certa'])){
+            switch($vez_do_time){
+                case 1:
+                    $pontuacao_time_2 += 1;
+                    $acertou = true;
+                    break;
+                case 2:
+                    $pontuacao_time_1 += 1;
+                    $acertou = true;
+                    break;
+            }
+        }
+    }
+    $vencedor = "empate";
+    if($pontuacao_time_1 == $pontuacao_time_2){
+        $vencedor = "empate";
+    }else{
+        if($pontuacao_time_1 > $pontuacao_time_2){
+            $vencedor = "time_1";
+        }else{
+            $vencedor = "time_2";
+        }
+    }
+    $quizController->criarResultado($vencedor,$pontuacao_time_1, $pontuacao_time_2);
+
+    header('Location: final.php');
+    exit;
 }
 ?>
 <!DOCTYPE html>

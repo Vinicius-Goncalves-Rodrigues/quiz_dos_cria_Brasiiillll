@@ -33,6 +33,10 @@ class QuizController{
     public function criarResultado($vencedor, $pontuacao_final_time_1, $pontuacao_final_time_2){
         $this->quizModel->criarResultado($vencedor, $pontuacao_final_time_1, $pontuacao_final_time_2);
     }
-
-    
+    public function getLatestResultadoId(){
+        return $this->quizModel->getLatestResultadoId();
+    }
+    public function listarResultadoPorId($id){
+        return $this->quizModel->listarResultadoPorId($id);
+    }
 }
