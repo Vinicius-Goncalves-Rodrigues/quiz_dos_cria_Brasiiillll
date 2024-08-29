@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__."../model/QuizModel.php";
+require_once __DIR__."/../model/QuizModel.php";
 
 class QuizController{
     private $quizModel;
