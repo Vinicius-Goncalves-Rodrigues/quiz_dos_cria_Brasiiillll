@@ -16,17 +16,25 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #237d26;
+    background-color: whitesmoke;
     padding: 10px;
+    box-shadow: 0 0 20px 0 black;
 }
 header a{
     position: absolute;
     left: 10px;
-    background-color: white;
+    background-color: whitesmoke;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
     color:black;
+    border: 2px solid black;
     text-decoration: none;
+}
+header a:hover, header a:focus{
+    background-color: color-mix(in srgb, crimson 50%, whitesmoke 50%);
+}
+header a:active{
+    background-color: crimson;
 }
 header div{
     text-align: center;
@@ -67,12 +75,18 @@ div.sun-container .sun{
 
 .grama{
     width: 100vw;
+    aspect-ratio: 10/1;
+    min-width: 1000px;
     position: absolute;
     bottom: 0;
     left: 0;
-    transform: translateY(10px);
+    mask-image: url("../icon/grama.svg");
+    mask-size: cover;
+    display: flex;
 }
-.grama div{
+.grama::after{
+    content: '';
+    background-color: #0A8B14;
     width: 100%;
     height: 100%;
 }
