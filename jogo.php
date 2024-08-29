@@ -48,15 +48,18 @@ switch($vez_do_time){
         break;
 }
 // adicionar pontos se o time acertou a pergunta
+$acertou = false;
 if(isset($_POST['pergunta_anterior_id'])){
     $pergunta_anterior = $quizController->listarPerguntaPorId($_POST['pergunta_anterior_id']);
     if (ucfirst($_POST['resposta_selecionada']) == ucfirst($pergunta_anterior['resposta_certa'])){
         switch($vez_do_time){
             case 1:
                 $pontuacao_time_2 += 1;
+                $acertou = true;
                 break;
             case 2:
                 $pontuacao_time_1 += 1;
+                $acertou = true;
                 break;
         }
     }
@@ -83,6 +86,16 @@ if(isset($_POST['vez_do_time'])){
         <h3 class="<?php if($vez_do_time == 1){echo"um";}else{echo"is";}?>"><?="VEZ DO TIME $vez_do_time"?></h3>
         <p class="time is"><?="TIME 2: $pontuacao_time_2"?></p>
     </header>
+    <h2 class="<?php
+    if($acertou){
+        if($vez_do_time == 1){
+            echo"is";
+        }else{
+            echo"um";
+        }
+    }
+    ?>">
+        TIME <?php if($vez_do_time == 1){echo"AZUL";}else{echo"VERDE";}?> ACERTOU!</h2>
     <form method="POST" class="container-quiz"><h1><?=$pergunta["texto_pergunta"]?></h1>
     <h4>perguntas restantes: <?=sizeof($perguntas_restantes)?></h4>
 

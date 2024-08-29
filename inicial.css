@@ -103,6 +103,35 @@ body:has(h3.is) .container-quiz div:has(input[type="radio"]:checked){
     transform: translateX(-10px) translateY(-10px);
     opacity:0;
 }
+h2{
+    display: none;
+    background-color: whitesmoke;
+    font-size: 2rem;
+    animation: fade-out;
+    width: fit-content;
+    padding: 10px;
+    margin:10px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+    align-items: center;
+    justify-content: center;
+    animation: fade-out 2s cubic-bezier(0.19, 1, 0.22, 1);
+    animation-fill-mode: forwards;
+}
+h2.um{
+    color: #12971b;
+    display: flex;
+}
+h2.is{
+    color:#0C2373;
+    display: flex;
+}
+@keyframes fade-out {
+    0%{opacity:1}
+    50%{opacity: 1;}
+    80%{opacity:0; font-size:2rem; margin: 10px auto}
+    100%{opacity:0; font-size: 0rem; margin: 0px auto;}
+}
 .time{
     background-color: whitesmoke;
     aspect-ratio: 4/1;
