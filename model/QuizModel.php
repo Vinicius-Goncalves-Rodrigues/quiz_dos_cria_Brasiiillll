@@ -41,7 +41,7 @@ class QuizModel{
     public function listarJogoPorId($id){
         $sql = "SELECT * FROM quiz WHERE id = $id AND tipo = 'jogo'";
         $stmt = $this->PDO->query($sql);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC)[0];
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     public function criarResultado($vencedor, $pontuacao_final_time_1, $pontuacao_final_time_2){
         $sql = "INSERT INTO quiz(tipo,vencedor, pontuacao_final_time_1, pontuacao_final_time_2) VALUES ('resultado',?,?,?)";

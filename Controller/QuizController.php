@@ -18,12 +18,12 @@ class QuizController{
         return $this->quizModel->listarPerguntaPorId($id);
     }
     public function criarJogo($total_perguntas,$pergunta_atual_id,$pontuacao_time_1,$pontuacao_time_2,$perguntas_restantes){
-        $perguntas_restantes2 = (str_replace('"', "'", json_encode($perguntas_restantes)));
+        $perguntas_restantes2 = str_replace('"', "'", json_encode($perguntas_restantes));
         return $this->quizModel->criarJogo($total_perguntas,$pergunta_atual_id,$pontuacao_time_1,$pontuacao_time_2,$perguntas_restantes2);
     }
     public function listarJogoPorId($id){
-        $jogo = $this->quizModel->listarJogoPorId($id);
-        $jogo['perguntas_restantes'] = json_decode(str_replace("'", '"', $jogo['perguntas_restantes']),true);
+        $jogo = $this->quizModel->listarJogoPorId($id)[0];
+        $jogo["perguntas_restantes"] = json_decode(str_replace("'", '"', $jogo["perguntas_restantes"]),true);
         return $jogo;
     }
     public function atualizarJogo($id, $pergunta_atual_id, $pontuacao_time_1, $pontuacao_time_2, $perguntas_restantes){
