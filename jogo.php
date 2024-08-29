@@ -1,3 +1,16 @@
+<?php
+
+if(isset($_GET["vez_do_time"])){
+    $pontos_time1 = $_GET["pontos_time1"];
+    $pontos_time2 = $_GET["pontos_time2"];
+    $vez_do_time = $_GET["vez_do_time"];
+}else{
+    $pontos_time1 = 0;
+    $pontos_time2 = 0;
+    $vez_do_time = 1;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -9,6 +22,11 @@
 </head>
 
 <body>
+    <header>
+        <p><?="TIME 1: $pontos_time1"?></p>
+        <h3><?="VEZ DO TIME $vez_do_time"?></h3>
+        <p><?="TIME 2: $pontos_time2"?></p>
+    </header>
     <form method="POST" class="container-quiz"><h1>1-Quais são as cinco regiões do Brasil?</h1>
 
         <div><input type="radio" name="resposta_selecionada" value="A"><h1>A)</h1>NORTE, NORDESTE, CENTRO OESTE, SUDESTE, SUL.</div>
