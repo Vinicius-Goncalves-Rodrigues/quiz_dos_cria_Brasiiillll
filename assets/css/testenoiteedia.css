@@ -16,7 +16,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(13, 141, 30);
+    background-color: #237d26;
     padding: 10px;
 }
 header a{
@@ -63,4 +63,16 @@ div.sun-container .sun{
 @keyframes rotate {
     0%{rotate:0deg}
     100%{rotate:360deg}
+}
+
+.grama{
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(10px);
+}
+.grama div{
+    width: 100%;
+    height: 100%;
 }

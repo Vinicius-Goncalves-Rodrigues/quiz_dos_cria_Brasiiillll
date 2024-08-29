@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sei lá</title>
-    <link rel="stylesheet" href="testenoiteedia.css">
+    <link rel="stylesheet" href="assets/css/testenoiteedia.css">
 </head>
 <body>
     <header>
@@ -14,10 +14,13 @@
             <h1>TIME SOL</h1>
         </div>
     </header>
-    <div class="sun-container">
-        <div class="sun">
-            <img src="star.svg">
-        </div>
-    </div>
+    <?php
+    // pode ter tres valores, sunToMoon, moonToSun, ou startSun.
+    if(isset($_GET["transition"])){
+        include "assets/"/$_GET["transition"].".html";
+    }else{
+        include "assets/startSun.html";
+    }
+    ?>
 </body>
 </html>
