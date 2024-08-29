@@ -34,7 +34,7 @@ class QuizModel{
         return $id;
     }
     public function atualizarJogo($id, $pergunta_atual_id, $pontuacao_time_1, $pontuacao_time_2, $perguntas_restantes){
-        $sql = "UPDATE quiz SET pergunta_atual_id = ?, pontuacao_time_1 = ?, pontuacao_time_2 = ?, $perguntas_restantes WHERE id = ?";
+        $sql = "UPDATE quiz SET pergunta_atual_id = ?, pontuacao_time_1 = ?, pontuacao_time_2 = ?, perguntas_restantes = ? WHERE id = ?";
         $stmt = $this->PDO->prepare($sql);
         $stmt->execute([$pergunta_atual_id, $pontuacao_time_1, $pontuacao_time_2, $perguntas_restantes, $id]);
     }

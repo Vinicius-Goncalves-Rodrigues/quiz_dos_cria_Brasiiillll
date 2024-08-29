@@ -27,7 +27,8 @@ class QuizController{
         return $jogo;
     }
     public function atualizarJogo($id, $pergunta_atual_id, $pontuacao_time_1, $pontuacao_time_2, $perguntas_restantes){
-        $this->atualizarJogo($id, $pergunta_atual_id, $pontuacao_time_1, $pontuacao_time_2, $perguntas_restantes);
+        $perguntas_restantes2 = str_replace('"',"'",json_encode($perguntas_restantes));
+        $this->quizModel->atualizarJogo($id, $pergunta_atual_id, $pontuacao_time_1, $pontuacao_time_2, $perguntas_restantes2);
     }
     public function criarResultado($vencedor, $pontuacao_final_time_1, $pontuacao_final_time_2){
         $this->quizModel->criarResultado($vencedor, $pontuacao_final_time_1, $pontuacao_final_time_2);
