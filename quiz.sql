@@ -42,8 +42,8 @@ CREATE TABLE `quiz` (
   `pontuacao_time_2` int(11) DEFAULT NULL,
   `perguntas_restantes` text DEFAULT NULL,
   `vencedor` varchar(255) DEFAULT NULL,
-  `pontucao_final_time_1` int(11) DEFAULT NULL,
-  `pontucao_final_time_2` int(11) DEFAULT NULL
+  `pontuacao_final_time_1` int(11) DEFAULT NULL,
+  `pontuacao_final_time_2` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
