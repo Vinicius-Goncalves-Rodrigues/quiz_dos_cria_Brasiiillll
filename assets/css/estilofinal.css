@@ -1,4 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
 body {
     background-image: url(../img/cristo_redentor_2.jpg);
     background-size: cover;
+    font-family: "Madimi One";
+}
+
+.voltar{
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+}
+
+.jogo{
+    
+    text-align: center;
 }
