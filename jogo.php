@@ -117,7 +117,7 @@ if(!$acabo_o_jogo){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>interface</title>
-    <link rel="stylesheet" href="inicial.css">
+    <link rel="stylesheet" href="assets/css/jogo.css">
 </head>
 
 <body>
