@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02/09/2024 às 13:39
+-- Tempo de geração: 29/08/2024 às 13:56
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -50,7 +50,7 @@ CREATE TABLE `quiz` (
 -- Despejando dados para a tabela `quiz`
 --
 
-INSERT INTO `quiz` (`id`, `tipo`, `texto_pergunta`, `resposta_certa`, `opcao_1`, `opcao_2`, `opcao_3`, `opcao_4`, `total_perguntas`, `pergunta_atual_id`, `pontuacao_time_1`, `pontuacao_time_2`, `perguntas_restantes`, `vencedor`, `pontuacao_final_time_1`, `pontuacao_final_time_2`) VALUES
+INSERT INTO `quiz` (`id`, `tipo`, `texto_pergunta`, `resposta_certa`, `opcao_1`, `opcao_2`, `opcao_3`, `opcao_4`, `total_perguntas`, `pergunta_atual_id`, `pontuacao_time_1`, `pontuacao_time_2`, `perguntas_restantes`, `vencedor`, `pontucao_final_time_1`, `pontucao_final_time_2`) VALUES
 (1, 'pergunta', 'Qual é a famosa sobremesa brasileira feita de leite condensado, chocolate e manteiga?', 'B', 'Pudim  ', 'Brigadeiro  ', 'Churros  ', 'Bolo de Rolo', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (2, 'pergunta', 'Qual é a cidade brasileira conhecida como a \"Capital Nacional do Rodeio\"?', 'B', 'Salvador  ', 'Barretos', 'Goiânia', 'Campo Grande', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (3, 'pergunta', 'Quem é a escritora brasileira autora de \"A Hora da Estrela\"?', 'B', 'Rachel de Queiroz  ', 'Clarice Lispector  ', 'Cecília Meireles  ', 'Lygia Fagundes Telles', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),

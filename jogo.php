@@ -8,7 +8,7 @@ $quizController = new QuizController($pdo);
 if(isset($_POST['vez_do_time'])){
     $jogo_id = $_POST['jogo_id'];
     $vez_do_time = $_POST['vez_do_time'];
-    $repassou = $_POST['repassou'];
+
 }
 else{
     $todasPerguntas = $quizController->listarPerguntasId();
@@ -18,7 +18,7 @@ else{
 
     $jogo_id = $quizController->criarJogo(($_POST['total_perguntas']*2), $perguntaId, 0,0,$perguntas_restantes);
     $vez_do_time = 2;
-    $repassou = 0;
+
 }
 
 // pegar info sobre o jogo da tabela quiz
@@ -30,19 +30,12 @@ $pontuacao_time_2 = $jogo_info['pontuacao_time_2'];
 $acabo_o_jogo = false;
 // regressar na lista se o jogo foi redirecionado da pagina jogo.php
 if(isset($_POST['vez_do_time'])){
-    if(isset($_POST['eu_repassei']) && $repassou < 1){
-        $perguntas_restantes = $jogo_info['perguntas_restantes'];
-        $perguntas_restantes = array_slice($perguntas_restantes, 0, sizeof($perguntas_restantes)-1);
-        if(sizeof($perguntas_restantes) != 0){
-            $perguntaId = $perguntas_restantes[sizeof($perguntas_restantes)-1]['id'];
-        }else{
-            $acabo_o_jogo = true;
-        }
-        $repassou = 0;
-    }else{
-        $repassou += 1;
-        $perguntas_restantes = $jogo_info['perguntas_restantes'];
+    $perguntas_restantes = $jogo_info['perguntas_restantes'];
+    $perguntas_restantes = array_slice($perguntas_restantes, 0, sizeof($perguntas_restantes)-1);
+    if(sizeof($perguntas_restantes) != 0){
         $perguntaId = $perguntas_restantes[sizeof($perguntas_restantes)-1]['id'];
+    }else{
+        $acabo_o_jogo = true;
     }
 }else{
     $perguntaId = $jogo_info['pergunta_atual_id'];
@@ -63,7 +56,7 @@ if(!$acabo_o_jogo){
     }
     // adicionar pontos se o time acertou a pergunta
     $acertou = false;
-    if(isset($_POST['pergunta_anterior_id']) && isset($_POST['resposta_selecionada'])){
+    if(isset($_POST['pergunta_anterior_id'])){
         $pergunta_anterior = $quizController->listarPerguntaPorId($_POST['pergunta_anterior_id']);
         if (ucfirst($_POST['resposta_selecionada']) == ucfirst($pergunta_anterior['resposta_certa'])){
             switch($vez_do_time){
@@ -129,9 +122,9 @@ if(!$acabo_o_jogo){
 
 <body>
     <header>
-        <p class="time um"><?="TIME VERDE: $pontuacao_time_1"?></p>
+        <p class="time um"><?="TIME 1: $pontuacao_time_1"?></p>
         <h3 class="<?php if($vez_do_time == 1){echo"um";}else{echo"is";}?>"><?="VEZ DO TIME $vez_do_time"?></h3>
-        <p class="time is"><?="TIME AZUL: $pontuacao_time_2"?></p>
+        <p class="time is"><?="TIME 2: $pontuacao_time_2"?></p>
     </header>
     <h2 class="<?php
     if($acertou){
@@ -143,31 +136,19 @@ if(!$acabo_o_jogo){
     }
     ?>">
         TIME <?php if($vez_do_time == 1){echo"AZUL";}else{echo"VERDE";}?> ACERTOU!</h2>
-    <div class="container-quiz">
-        <form method="POST">
-        <h1><?=$pergunta["texto_pergunta"]?></h1>
-        <h4>perguntas restantes: <?=sizeof($perguntas_restantes)?></h4>
+    <form method="POST" class="container-quiz"><h1><?=$pergunta["texto_pergunta"]?></h1>
+    <h4>perguntas restantes: <?=sizeof($perguntas_restantes)?></h4>
 
         <div><input type="radio" name="resposta_selecionada" value="A" required><h1>A)</h1><?=$pergunta['opcao_1']?></div>
         <div><input type="radio" name="resposta_selecionada" value="B"><h1>B)</h1><?=$pergunta['opcao_2']?></div>
         <div><input type="radio" name="resposta_selecionada" value="C"><h1>C)</h1><?=$pergunta['opcao_3']?></div>
         <div><input type="radio" name="resposta_selecionada" value="D"><h1>D)</h1><?=$pergunta['opcao_4']?></div>
 
-        <input type="hidden" name="repassou" value="0">
         <input type="hidden" name="jogo_id" value="<?=$jogo_id?>">
         <input type="hidden" name="vez_do_time" value="<?=$vez_do_time?>">
         <input type="hidden" name="pergunta_anterior_id" value="<?=$perguntaId?>">
         <button><strong>ENVIAR RESPOSTA</strong></button>
-        </form>
-        <form method="POST">
-            <input type="hidden" name="eu_repassei" value="1">
-            <input type="hidden" name="repassou" value="<?=$repassou?>">
-            <input type="hidden" name="jogo_id" value="<?=$jogo_id?>">
-            <input type="hidden" name="vez_do_time" value="<?=$vez_do_time?>">
-            <input type="hidden" name="pergunta_anterior_id" value="<?=$perguntaId?>">
-            <button class="repassar" <?php if($repassou>=3){echo"disabled";} ?> ><strong>REPASSAR</strong></button>
-        </form>
-    </div>
+    </form>
 </body>
 
 </html>
