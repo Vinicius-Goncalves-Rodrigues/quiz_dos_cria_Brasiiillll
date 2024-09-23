@@ -130,11 +130,12 @@ if(!$acabo_o_jogo){
 <body>
     <header>
         <p class="time um"><?="TIME VERDE: $pontuacao_time_1"?></p>
-        <h3 class="<?php if($vez_do_time == 1){echo"um";}else{echo"is";}?>">VEZ DO TIME <?php if($vez_do_time == 1){echo"VERDE";}else{echo"AZUL";}?></h3>
+        <h3 class="<?php if($vez_do_time == 1){echo"um";}else{echo"is";}?>">VEZ DO TIME: <strong><?php if($vez_do_time == 1){echo"VERDE";}else{echo"AZUL";}?></strong></h3>
         <p class="time is"><?="TIME AZUL: $pontuacao_time_2"?></p>
     </header>
     <h2 class="<?php
-    if($acertou){
+    //checa se é o primeiro turno de todos
+    if(!isset($_POST['total_perguntas'])){
         if($vez_do_time == 1){
             echo"is";
         }else{
@@ -142,7 +143,20 @@ if(!$acabo_o_jogo){
         }
     }
     ?>">
-        TIME <?php if($vez_do_time == 1){echo"AZUL";}else{echo"VERDE";}?> ACERTOU!</h2>
+    <?php
+    $timestring = "VERDE";
+    if($vez_do_time == 1){
+        $timestring = "AZUL";
+    }else{
+        $timestring = "VERDE";
+    }
+    if($acertou){
+        echo"TIME $timestring <p>ACERTOU!!!</p>";
+    }else{
+        echo"TIME $timestring <p class='errou'>ERROU!!!</p>";
+    }
+    ?>    
+    </h2>
     <div class="container-quiz">
         <form method="POST">
             <h1><?=$pergunta["texto_pergunta"]?></h1>
