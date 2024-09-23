@@ -30,7 +30,7 @@ $pontuacao_time_2 = $jogo_info['pontuacao_time_2'];
 $acabo_o_jogo = false;
 // regressar na lista se o jogo foi redirecionado da pagina jogo.php
 if(isset($_POST['vez_do_time'])){
-    if(isset($_POST['eu_repassei']) && $repassou < 1){
+    if($repassou < 1){
         $perguntas_restantes = $jogo_info['perguntas_restantes'];
         $perguntas_restantes = array_slice($perguntas_restantes, 0, sizeof($perguntas_restantes)-1);
         if(sizeof($perguntas_restantes) != 0){
